@@ -23,8 +23,12 @@ interface iCartProd {
 interface iCartContext {
     total: number;
     setTotal: React.Dispatch<React.SetStateAction<number>>;
-    cart: iCart[];
-    setCart: React.Dispatch<React.SetStateAction<iCart[]>>;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    cart: any;
+    card: any
+    filter: any
+    search: string;
+    setCart: React.Dispatch<React.SetStateAction<any>>;
     toCart: ({ id, name, category, price }: any) => void;
     addUnit: (id: number) => void;
     removeTheUnits: (id: number) => void;
@@ -33,14 +37,16 @@ interface iCartContext {
     product: (e: any) => void
 }
 export const CartProvider = ({ children }: Iprovider) => {
-    const [filter, setFilter] = useState([]);
-    const [cart, setCart] = useState<iCart[]>([]);
-    const [card, setCard] = useState([]);
+    const [filter, setFilter] = useState<any[]>([]);
+    const [cart, setCart] = useState<any[]>([]);
+    const [card, setCard] = useState<any[]>([]);
     const [search, setSearch] = useState("");
     const [total, setTotal] = useState(0);
-
+    const token = localStorage.getItem("@burguer-token")
     useEffect(() => {
-        api.get("products")
+        api.get("/products", {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then(({ data }) => setCard(data))
             .catch((error) => console.log(error));
     }, []);
@@ -91,6 +97,7 @@ export const CartProvider = ({ children }: Iprovider) => {
             setTotal(total - card.price);
         }
     };
+    
     const product = (e:any) => {
         e.preventDefault();
 
@@ -117,9 +124,11 @@ export const CartProvider = ({ children }: Iprovider) => {
                 total,
                 setTotal,
                 cart,
+                card,
                 setCart,
                 search,
-                setSearch
+                setSearch,
+                filter
             }}
         >
             {children}

@@ -4,11 +4,16 @@ export const StyledForm = styled.form`
     position: relative;
     margin-bottom: 10px;
     width: 100%;
+    height: 50px;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: space-evenly;
 
     button{
-        position: absolute;
-        top: 10px;
-        right: 4%;
+        position: absolute; 
+        right: 0;
+        left: 50%;
         padding: 10px;
         font-size: 0.8rem;
         

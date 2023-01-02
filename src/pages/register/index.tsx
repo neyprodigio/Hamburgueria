@@ -47,7 +47,7 @@ const Register = () => {
                 <Form onSubmit={handleSubmit(submit)}>
                     <StyledSection>
                         <h1 className="login">Registro</h1>
-                        <Link to="/register" className="lnk">
+                        <Link to="/" className="lnk">
                             retornar para o login
                         </Link>
                     </StyledSection>

@@ -12,7 +12,7 @@ export const StyledTotalCart = styled.main`
         align-items: center;
         background: #F5F5F5;
         padding-top:12px;
-        width: 100%;
+        width: 20%;
         border-top: 3px solid #E0E0E0;
         margin: 0 auto;
         

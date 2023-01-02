@@ -1,22 +1,16 @@
-import { useNavigate } from "react-router-dom"
-import HeaderSearch from "../../components/HeaderSearch"
+import { useNavigate } from "react-router-dom";
+import Cards from "../../components/Cards";
+import Cart from "../../components/Cart";
+import HeaderSearch from "../../components/HeaderSearch";
 
 const Dashboard = () => {
-   const token = localStorage.getItem("burguer-token")
-   const navigate = useNavigate()
-    return(
+    const token = localStorage.getItem("burguer-token");
+    const navigate = useNavigate();
+    return (
         <>
-            {token ? (
-                <>
-                    <HeaderSearch/>
-                    {/* Minha Pagina quebrou devido a falhas de tipagem no cart context */}
-                    {/* Não conseguir resolver */}
-                    
-                </>
-            ) : (
-                navigate("/")
-            )}
+            <HeaderSearch />
+            <Cards />
         </>
-    )
-}
-export default Dashboard
+    );
+};
+export default Dashboard;

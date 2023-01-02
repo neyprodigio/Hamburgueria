@@ -7,8 +7,8 @@ export const StyledInput = styled.input`
     border-radius: 8px;
     color: #E0E0E0;
     font-weight: 400;
-    width: 90%;
-    height: 50px;
+    width: 50%;
+    height: 40px;
     padding-left: 10px;
 
         &:hover{

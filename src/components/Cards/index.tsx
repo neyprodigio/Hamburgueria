@@ -4,7 +4,7 @@ import { StyledUl } from "../../styles/ul";
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 const Cards = () => {
-    const {toCart, filter, search} = useContext(CartContext)
+    const {toCart, filter, search, card} = useContext(CartContext)
     return (
         <>
             {filter.length !== 0 ? (
@@ -15,7 +15,7 @@ const Cards = () => {
                     </StyledResultSearch>
 
                     <StyledUl>
-                        {filter.map((item) => {
+                        {filter.map((item:any) => {
                             const { id, name, category, img, price } = item;
                             return (
                                 <li key={id}>
@@ -38,7 +38,7 @@ const Cards = () => {
                 </>
             ) : (
                 <StyledUl>
-                    {card.map((item) => {
+                    {card.map((item:any) => {
                         const { id, name, category, img, price } = item;
 
                         return (
