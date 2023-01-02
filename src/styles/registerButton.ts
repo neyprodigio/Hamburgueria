@@ -1,7 +1,7 @@
 import styled, { StyledComponent } from "styled-components";
 
 export const StyledRegisterBtn = styled.button`
-    display: none;
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
