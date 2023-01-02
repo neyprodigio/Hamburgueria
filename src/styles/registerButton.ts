@@ -1,13 +1,13 @@
 import styled, { StyledComponent } from "styled-components";
 
-export const StyledLoginBtn = styled.button`
-    display: flex;
+export const StyledRegisterBtn = styled.button`
+    display: none;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 0px 40px;
     gap: 10px;
-    background: #219653;
+    background: #f5f5f5;
     border-radius: 8px;
     border: none;
     width: 90%;
@@ -15,13 +15,12 @@ export const StyledLoginBtn = styled.button`
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
-    
+
     text-align: center;
 
-    color: #ffffff;
-
+    color: #999999;
     @media (min-width: 960px){
-           
+            display: flex;
         }
 
 `;

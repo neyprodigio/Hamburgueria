@@ -5,5 +5,9 @@ export const StyledRigth = styled.div `
     flex-direction: column;
     align-items: center;
 
-    
+      @media (min-width: 960px){
+            flex-direction: row; 
+            width: 70%;
+            margin: auto;
+        }
 `

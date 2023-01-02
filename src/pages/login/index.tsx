@@ -7,9 +7,11 @@ import { StyledText } from "../../styles/loginText";
 import { StyledRigth } from "../../styles/mainRigth";
 import { StyledTitle } from "../../styles/titleLogin";
 import { Form } from "../../styles/form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../styles/input";
 import { StyledLoginBtn } from "../../styles/loginButton";
+import { StyledLefth } from "../../styles/mainLefth";
+import { StyledRegisterBtn } from "../../styles/registerButton";
 
 const Login = () => {
     const title = require("../../assets/title.png");
@@ -20,6 +22,7 @@ const Login = () => {
         email: string;
         password: string;
     }
+    const navigate = useNavigate()
     const { userLogin } = useContext(UserContext);
     const { register, handleSubmit } = useForm<Ilogin>();
     const submit = async (data: Ilogin) => {
@@ -30,11 +33,13 @@ const Login = () => {
     return (
         <>
             <StyledRigth>
-                <StyledTitle src={title} alt="" />
-                <LoginContainer>
-                    <Bag src={bag} alt="" />
-                    <StyledText src={text} alt="" />
-                </LoginContainer>
+                <StyledLefth>
+                    <StyledTitle src={title} alt="" />
+                    <LoginContainer>
+                        <Bag src={bag} alt="" />
+                        <StyledText src={text} alt="" />
+                    </LoginContainer>
+                </StyledLefth>
                 <Form onSubmit={handleSubmit(submit)}>
                     <h1 className="login">Login</h1>
                     <Input
@@ -54,6 +59,10 @@ const Login = () => {
                     <Link to="/register" className="link">
                         Crie sua conta para saborear muitas delícias e matar sua
                         fome!
+                    </Link>
+                    
+                    <Link to="/register" className="btnRegister">
+                        Cadastrar
                     </Link>
                 </Form>
             </StyledRigth>

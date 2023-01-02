@@ -28,4 +28,32 @@ export const Form = styled.form`
         text-align: center;
         color: #999999;
     }
+    .btnRegister {
+        display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 40px;
+    gap: 10px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    border: none;
+    width: 70%;
+    height: 60px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-decoration: none;
+    text-align: center;
+
+    color: #999999;
+    @media (min-width: 960px){
+            display: flex;
+        }
+    }
+    @media (min-width: 960px){
+            margin-top: 60px;
+            width: 50%;
+            height: 320px;
+        }
 `;
