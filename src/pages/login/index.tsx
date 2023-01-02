@@ -12,6 +12,9 @@ import { Input } from "../../styles/input";
 import { StyledLoginBtn } from "../../styles/loginButton";
 import { StyledLefth } from "../../styles/mainLefth";
 import { StyledRegisterBtn } from "../../styles/registerButton";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "./loginSchema";
+import { StyledErrors } from "../../styles/errors";
 
 const Login = () => {
     const title = require("../../assets/title.png");
@@ -22,9 +25,15 @@ const Login = () => {
         email: string;
         password: string;
     }
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const { userLogin } = useContext(UserContext);
-    const { register, handleSubmit } = useForm<Ilogin>();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Ilogin>({
+        resolver: yupResolver(loginSchema),
+    });
     const submit = async (data: Ilogin) => {
         console.log(data);
         userLogin(data);
@@ -48,19 +57,23 @@ const Login = () => {
                         placeholder="Email"
                         {...register("email")}
                     />
+                    {errors.email && (
+                        <StyledErrors>{errors.email.message}</StyledErrors>
+                    )}
                     <Input
                         id="password"
                         type="password"
                         placeholder="Senha"
                         {...register("password")}
                     />
+                    {errors.password &&  <StyledErrors>{errors.password.message}</StyledErrors>}
 
                     <StyledLoginBtn>Login</StyledLoginBtn>
                     <Link to="/register" className="link">
                         Crie sua conta para saborear muitas delícias e matar sua
                         fome!
                     </Link>
-                    
+
                     <Link to="/register" className="btnRegister">
                         Cadastrar
                     </Link>
