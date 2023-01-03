@@ -35,6 +35,7 @@ interface iCartContext {
     delAll: () => void;
     delProdut: (id: number) => void;
     product: (e: any) => void
+    token: any
 }
 export const CartProvider = ({ children }: Iprovider) => {
     const [filter, setFilter] = useState<any[]>([]);
@@ -49,7 +50,7 @@ export const CartProvider = ({ children }: Iprovider) => {
         })
             .then(({ data }) => setCard(data))
             .catch((error) => console.log(error));
-    }, []);
+    }, [card]);
     const toCart = (id:number) => {
         card.map((item) => {
             const newList = cart.filter((item) => item.id !== id);
@@ -128,7 +129,8 @@ export const CartProvider = ({ children }: Iprovider) => {
                 setCart,
                 search,
                 setSearch,
-                filter
+                filter,
+                token
             }}
         >
             {children}
